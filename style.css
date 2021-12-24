@@ -1,0 +1,227 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-image: url("bgimage.jpg");
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    height:100vh;
+    color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  header a {
+    text-decoration: none;
+  }
+  
+  header {
+    padding: 0 20px;
+    border-bottom: rgb(0, 0, 0) solid 1px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    background-color:rgba(255, 255, 255, 0.2);
+  }
+  
+  #brand {
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+  }
+  
+  #brand a {
+    color: rgb(0, 0, 0);
+  }
+  
+  ul {
+    list-style: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  ul a {
+    color: rgb(255, 255, 255);
+  }
+  
+  ul li {
+    padding: 5px;
+    margin-left: 40px;
+  }
+  
+  ul li:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+  }
+  
+  #hamburger-icon {
+    margin: auto 0;
+    display: none;
+    cursor: pointer;
+  }
+
+  #hamburger-icon ul li a{
+      color:white;
+      background-color: black;
+  }
+  
+  #hamburger-icon div {
+    width: 35px;
+    height: 3px;
+    background-color:white;
+    margin: 6px 0;
+    transition: 0.4s;
+
+  }
+  
+  .open .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-6px, 6px);
+    transform: rotate(-45deg) translate(-6px, 6px);
+  }
+  
+  .open .bar2 {
+    opacity: 0;
+  }
+  
+  .open .bar3 {
+    -webkit-transform: rotate(45deg) translate(-6px, -8px);
+    transform: rotate(45deg) translate(-6px, -8px);
+  }
+  
+  .open .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .mobile-menu {
+      background-color: black;
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    height: calc(100vh - 50px);
+    width: 100%;
+  }
+  
+  .mobile-menu li {
+    margin-bottom: 10px;
+  }
+
+ h2{
+    text-align: center;
+    color:#82D8FE;
+    margin-top: 6%;
+    text-shadow: 1px 1px 10px #9EF2F5;
+    font-size: 30px;
+  }
+  
+ #text{
+  text-align: center;
+  color:#ffffff;
+  margin-top: 5%;
+  width: 300px;
+  margin-left: 38%;
+  font-size: 18px;
+  
+} 
+
+button{
+    background-color: #82D8FE;
+    color:black;
+    height: 50px;
+    width: 150px;
+    border-radius:10px ;
+    margin-top: 2%;
+    margin-left: 44%;
+    border:solid 3px black;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  button:hover{
+    color:#82D8FE;
+    background-color: black;
+    border:solid 3px #82D8FE;
+  }
+  
+  .footer{
+    display: flex;
+    flex-direction: row;
+    background-color:rgba(255, 255, 255, 0.2);
+    justify-content: space-between;
+    position:fixed;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    height: 40px;
+    padding-right: 10px;
+    padding-left: 10px;
+    width:100%;
+    left: 0;
+    bottom: 0;
+   
+  }
+  .footer p{
+    text-align: center;
+    color: white;
+  }
+  
+  .footer #icones li img{
+      width:20px;
+      height:20px;
+  }
+ 
+  @media only screen and (max-width: 600px) {
+    header nav {
+      display: none;
+    }
+  
+    #hamburger-icon {
+      display: block;
+    }
+    h2{
+      margin-top: 190px;
+      font-size: 25px;
+    }
+    
+   #text{
+    margin-top: 100px;
+    width: 200px;
+    font-size: 16px;
+    margin-left: 20%;
+  } 
+  
+  button{
+      height: 40px;
+      width: 130px;
+      margin-top: 25px;
+      font-size: 18px;
+      margin-left: 30%;
+    }
+
+    .footer{
+        display: block;
+        flex-direction: row;
+        background-color:black;
+        justify-content: space-between;
+        position:fixed;
+        padding-top: 15px;
+        height: auto;
+        padding-right: 10px;
+        padding-left: 10px;
+        width:100%;
+        left: 0;
+        bottom: 0;
+      }
+      .footer #icones{
+        margin-right: 60px;
+        margin-top: 5px;
+        margin-bottom: -10px;
+    }
+  }
