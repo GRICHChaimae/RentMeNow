@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Gallerie.css" />
+    <title>Navigation bar</title>
+  </head>
+  <body>
+    <header>
+      <div id="brand">Rent<span style="color:#82D8FE;">Me</span>Now</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="Gallerie.html">Gallerie</a></li>
+          <li><a href="resrvation.html" class="active">Reservation</a></li>
+          <li><a href="cn.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+        <ul class="mobile-menu">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="Gallerie.html">Gallerie</a></li>
+          <li><a href="resrvation.html">Reservation</a></li>
+          <li><a href="cn.html">Contact</a></li>
+      </ul>
+      </div>
+    </header>
+
+    <div id="s_menu">
+      <ul>
+        <li><a href="Gallerie.html">Moto</a></li>
+        <li><a href="citadine.html" >Citadine</a></li>
+        <li><a href="compact.html" class="active_Sm">Compact</a></li>
+        <li><a href="Berline.html">Berline</a></li>
+        <li><a href="Utilitaire.html">Utilitaire</a></li>
+        <li><a href="Engine de chantier.html">Engine de Chantier</a></li>
+        <li><a href="Camion.html">Camion</a></li>
+      </ul>
+    </div>
+
+    <div id="container">
+      <div class="image-container">
+          <img alt="compact" src="compact/compact4.png" id="content1" class="active">
+          <img alt="compact" src="compact/compact2.png" id="content2">
+          <img alt="compact" src="compact/compact6.png" id="content3">
+          <img alt="compact" src="compact/compact1.png" id="content4">
+          <img alt="compact" src="compact/compact8.png" id="content5">
+      </div>
+
+      <button id="prev" onclick="prev()"> &lt; </button>
+      <button id="next" onclick="next()"> &gt; </button>
+
+  </div> 
+
+<footer>
+  <div class="footer">
+    <p>© Untitled | Website created with</p>
+    <p> Mashup Template/Unsplash</p>
+    <ul id="icones">
+        <li><img src="twitter.png" alt="Twitter"></li>
+        <li><img src="insta.png" alt="Instagrame"></li>
+        <li><img src="dribble.png" alt="Dribble" style="size:5px;"></li>
+    </ul>
+</div>
+</footer>
+  
+    <script>
+      function toggleMobileMenu(menu) {
+        menu.classList.toggle('open');
+      }
+
+    let i = 0;
+    let j = 5;
+
+    function next(){
+    document.getElementById("content" + (i+1)).classList.remove("active");
+    i = ( j + i + 1) % j;
+    document.getElementById("content" + (i+1)).classList.add("active");
+    indicator( i+ 1 );
+}
+    function prev(){
+    document.getElementById("content" + (i+1)).classList.remove("active");
+    i = (j + i - 1) % j;
+    document.getElementById("content" + (i+1)).classList.add("active");
+    indicator(i+1);
+}
+
+    </script>
+  </body>
+</html>

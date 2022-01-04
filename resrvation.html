@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reservation.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <header>
+        <div id="brand">Rent<span style="color:#82D8FE;">Me</span>Now</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="Gallerie.html">Gallerie</a></li>
+                <li><a href="resrvation.html">Reservation</a></li>
+                <li><a href="cn.html">Contact</a></li>
+              </ul>
+        </nav>
+        <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+          <ul class="mobile-menu">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="Gallerie.html">Gallerie</a></li>
+            <li><a href="resrvation.html">Reservation</a></li>
+            <li><a href="cn.html">Contact</a></li>
+        </ul>
+        </div>
+      </header>
+      <div class="container_totale">
+    <div class="container">
+        <p style="color:#82D8FE;">Veuillez choisir le type de la véhicule:</p>
+    <div>
+        <select name="type_vehicule" id="type_vehicule"  onChange="Select() , Calcul()">
+        <option value="0">Select type:</option>
+        <option value="Moto" id="Moto">Moto</option>
+        <option value="Citadine">Citadine</option>
+        <option value="Compact">Compact</option>
+        <option value="Berline">Berline</option>
+        <option value="Utilitaire">Utilitaire</option>
+        <option value="Engine_de_Chantier">Engine de Chantier</option>
+        <option value="Camion">Camion</option>
+        </select>
+        
+    </div>
+    <p style="color:#82D8FE;">Veuillez saisir la durée que vous voulez :</p>
+    <div><input type="number" id="duree"  min="1"  placeholder="Entrer le nombre de les jours"></div>
+    <p id="p" style="color:#82D8FE;">Veuillez choisir le type de la boite a vitesse et le carburant:</p>
+<div onclick="Calcul() , Select()" id="input_carburant">
+    <div>
+        <input type="radio" name="choix" id='Manuelle' value="Manuelle"  >
+        <label id='manuelle'> Manuelle </label>
+    </div>
+    <div>
+        <input type="radio" name="choix" id='Automatique' value="Automatique">
+        <label id='automatique'> Automatique (+19%)</label>
+    </div>
+    <div>
+        <input type="radio" name="un_choix" id='Electrique' value="Electrique">
+        <label id='electrique'> Electrique (+5%)</label>
+    </div>
+    <div>
+        <input type="radio" name="un_choix" id='Hybride' value="Hybride">
+        <label id='hybride'> Hybride (+9%)</label>
+    </div>
+    <div><input type="radio" name="un_choix" id='Essence' value="Essence">
+        <label id='essence'> Essence (+14%)</label>
+    </div>
+    <div><input type="radio" name="un_choix" id='Diesel' value="Diesel">
+        <label id='diesel'> Diesel (+21%)</label>
+    </div>
+</div> 
+    <button id="Total" onclick="checkk() , result() , Calcul()">Total</button>
+    <p id="demo" style="margin-top: 10px;"></p>
+</div>
+<div class="type_prix">
+    <div class="type">
+        <p class="main_P">Type:</p>
+        <p>Moto</p>
+        <p>Citadine</p>
+        <p>Compact</p>
+        <p>Berline</p>
+        <p>Utilitaire</p>
+        <p>Engine de Chantier</p>
+        <p>Camion</p>
+    </div>
+    <div class="Tarif">
+        <p class="main_P">Tarif/Jour:</p>
+        <p>10 €</p>
+        <p>12 €</p>
+        <p>14 €</p>
+        <p>20 €</p>
+        <p>16 €</p>
+        <p>900 €</p>
+        <p>250 €</p>
+    </div>
+</div>
+</div>
+
+
+
+    <div class="footer">
+        <p>© Untitled | Website created with</p>
+        <p> Mashup Template/Unsplash</p>
+        <ul id="icones">
+            <li><img src="twitter.png" alt="Twitter"></li>
+            <li><img src="insta.png" alt="Instagrame"></li>
+            <li><img src="dribble.png" alt="Dribble"></li>
+        </ul>
+    </div>
+    <script>
+    function toggleMobileMenu(menu) {
+     menu.classList.toggle('open');
+     }
+
+        var prix_vehicule = 0;
+
+        function Select() {
+
+        var typeVehicule = document.getElementById('type_vehicule').value;
+        if(typeVehicule == "Moto"){
+                console.log("Moto");
+                document.getElementById("Manuelle").checked = false; 
+                document.getElementById("manuelle").style="color:rgba(0,0,0,0.4)";
+                document.getElementById("Automatique").checked = false; 
+                document.getElementById("automatique").style="color:rgba(0,0,0,0.4)";
+                document.getElementById("Hybride").checked = false; 
+                document.getElementById("hybride").style="color:rgba(0,0,0,0.4)";
+                document.getElementById("Diesel").checked = false; 
+                document.getElementById("diesel").style="color:rgba(0,0,0,0.4)";
+
+                document.getElementById("Electrique").checked; 
+                document.getElementById("electrique").style="color:rgb(250,250,250)";
+                document.getElementById("Essence").checked; 
+                document.getElementById("essence").style="color:rgb(250,250,250)";
+                prix_vehicule = 10;
+        }
+
+        if(typeVehicule == "Citadine"){
+            console.log("Citadine");
+                document.getElementById("Automatique").checked = false; 
+                document.getElementById("automatique").style="color:rgba(0,0,0,0.4)";
+
+                document.getElementById("Electrique").checked; 
+                document.getElementById("electrique").style="color:rgb(250,250,250)";
+                document.getElementById("Essence").checked; 
+                document.getElementById("essence").style="color:rgb(250,250,250)";
+                document.getElementById("Hybride").checked; 
+                document.getElementById("hybride").style="color:rgb(250,250,250)";
+                document.getElementById("Diesel").checked; 
+                document.getElementById("diesel").style="color:rgb(250,250,250)";
+                document.getElementById("Manuelle").checked = true;  
+                document.getElementById("manuelle").style="color:rgb(250,250,250)";
+                prix_vehicule = 12;
+        }
+
+        if(typeVehicule == "Compact"){
+            console.log("Compact");
+                document.getElementById("Automatique").checked = false; 
+                document.getElementById("automatique").style="color:rgba(0,0,0,0.4)";
+                document.getElementById("Electrique").checked = false; 
+                document.getElementById("electrique").style="color:rgba(0,0,0,0.4)";
+
+                document.getElementById("Hybride").checked; 
+                document.getElementById("hybride").style="color:rgb(250,250,250)";
+                document.getElementById("Diesel").checked; 
+                document.getElementById("diesel").style="color:rgb(250,250,250)";
+                document.getElementById("Manuelle").checked = true;  
+                document.getElementById("manuelle").style="color:rgb(250,250,250)";
+                document.getElementById("Essence").checked; 
+                document.getElementById("essence").style="color:rgb(250,250,250)";
+                prix_vehicule = 14;
+        }
+
+        if(typeVehicule == "Berline"){
+            console.log("Berline");
+                document.getElementById("Manuelle").checked = false; 
+                document.getElementById("manuelle").style="color:rgba(0,0,0,0.4)";
+                document.getElementById("Electrique").checked = false; 
+                document.getElementById("electrique").style="color:rgba(0,0,0,0.4)";
+
+                document.getElementById("Essence").checked; 
+                document.getElementById("essence").style="color:rgb(250,250,250)";
+                document.getElementById("Hybride").checked; 
+                document.getElementById("hybride").style="color:rgb(250,250,250)";
+                document.getElementById("Diesel").checked; 
+                document.getElementById("diesel").style="color:rgb(250,250,250)";
+                document.getElementById("Automatique").checked = true ; 
+                document.getElementById("automatique").style="color:rgb(250,250,250)";
+                prix_vehicule = 20;
+        }
+
+        if(typeVehicule == "Utilitaire"){
+            console.log("Utilitaire");
+                document.getElementById("Automatique").checked = false; 
+                document.getElementById("automatique").style="color:rgba(0,0,0,0.4)";
+                document.getElementById("Hybride").checked = false; 
+                document.getElementById("hybride").style="color:rgba(0,0,0,0.4)";
+                document.getElementById("Electrique").checked = false; 
+                document.getElementById("electrique").style="color:rgba(0,0,0,0.4)";
+                document.getElementById("Essence").checked = false; 
+                document.getElementById("essence").style="color:rgba(0,0,0,0.4)";
+
+                document.getElementById("Diesel").checked; 
+                document.getElementById("diesel").style="color:rgb(250,250,250)";
+                document.getElementById("Manuelle").checked = true ; 
+                document.getElementById("manuelle").style="color:rgb(250,250,250)";
+                prix_vehicule = 16;
+        }
+
+        if(typeVehicule == "Engine_de_Chantier"){
+            console.log("Engine_de_Chantier");
+                document.getElementById("Automatique").checked = false; 
+                document.getElementById("automatique").style="color:rgba(0,0,0,0.4)";
+                document.getElementById("Hybride").checked = false; 
+                document.getElementById("hybride").style="color:rgba(0,0,0,0.4)";
+                document.getElementById("Electrique").checked = false; 
+                document.getElementById("electrique").style="color:rgba(0,0,0,0.4)";
+
+                document.getElementById("Diesel").checked; 
+                document.getElementById("diesel").style="color:rgb(250,250,250)";
+                document.getElementById("Essence").checked; 
+                document.getElementById("essence").style="color:rgb(250,250,250)";
+                document.getElementById("Manuelle").checked = true; 
+                document.getElementById("manuelle").style="color:rgb(250,250,250)";
+                prix_vehicule = 900;
+        }
+
+        if(typeVehicule == "Camion"){
+            console.log("Camion");
+                document.getElementById("Manuelle").checked = false; 
+                document.getElementById("manuelle").style="color:rgba(0,0,0,0.4)";
+                document.getElementById("Hybride").checked = false; 
+                document.getElementById("hybride").style="color:rgba(0,0,0,0.4)";
+                document.getElementById("Electrique").checked = false; 
+                document.getElementById("electrique").style="color:rgba(0,0,0,0.4)";
+                document.getElementById("Essence").checked = false; 
+                document.getElementById("essence").style="color:rgba(0,0,0,0.4)";
+
+                document.getElementById("Diesel").checked; 
+                document.getElementById("diesel").style="color:rgb(250,250,250)";
+                document.getElementById("Automatique").checked = true ;
+                document.getElementById("automatique").style="color:rgb(250,250,250)";
+                prix_vehicule = 250;
+        }
+
+        }
+        
+        var Total ;
+
+        function Calcul(){
+               
+            var typeVehicule = document.getElementById('type_vehicule').value;
+                    //Moto
+            if(typeVehicule == "Moto"){
+                    console.log("MMMMMMMMMMM");
+                    if(document.getElementById('Essence').checked){
+                    console.log("eeeeeeeeee");
+
+                    Total = 10 + (14*10)/100 ;
+
+                    }
+                    else if(document.getElementById('Electrique').checked){
+                    console.log("VVVVNNNNBBBBZZA");
+
+                    Total = 10 + (5*10)/100 ;
+                    
+                    }
+            }
+                    //Citadine
+           else if(typeVehicule == "Citadine"){
+                  
+                    if(document.getElementById('Essence').checked){
+                    Total = 12 + (14*12)/100 ;
+                    }
+
+                    else if(document.getElementById('Electrique').checked){
+                    Total = 12 + (5*12)/100 ;
+                    }
+
+                    else if(document.getElementById('Hybride').checked){
+                    Total = 12 + (9*12)/100 ;
+                    }
+
+                    else if(document.getElementById('Diesel').checked){
+                    Total = 12 + (21*12)/100 ;
+                    }
+            }
+                    //Compact
+            else if(typeVehicule == "Compact"){
+                  
+                    if(document.getElementById('Essence').checked){
+                    Total = 14 + (14*14)/100 ;
+                    }
+
+                    else if(document.getElementById('Hybride').checked){
+                    Total = 14 + (9*14)/100 ;
+                    }
+
+                    else if(document.getElementById('Diesel').checked){
+                    Total = 14 + (21*14)/100 ;
+                    }
+            }
+                    //Berline
+            else if(typeVehicule == "Berline"){
+
+                    if(document.getElementById('Essence').checked){
+                    Total = 20 + (14*20)/100 + (19*20)/100 ;
+                    }
+
+                    else if(document.getElementById('Hybride').checked){
+                    Total = 20 + (9*20)/100 + (19*20)/100 ;
+                    }
+
+                    else if(document.getElementById('Diesel').checked){
+                    Total = 20 + (21*20)/100 + (19*20)/100 ;
+                    }
+                
+            }
+                    //Utilitaire
+            else if(typeVehicule == "Utilitaire"){
+
+                    if(document.getElementById('Diesel').checked){
+                    Total = 16 + (21*16)/100 ;
+                    }
+
+            }
+                    //Engine_de_Chantier
+            else if(typeVehicule == "Engine_de_Chantier"){
+
+                    if(document.getElementById('Essence').checked){
+                    Total = 900 + (14*900)/100 ;
+                    }
+                    
+                    else if(document.getElementById('Diesel').checked){
+                    Total = 900 + (21*900)/100 ;
+                    }
+
+            }
+                    //Camion
+            else if(typeVehicule == "Camion"){
+
+                    if(document.getElementById('Diesel').checked){
+
+                    Total = 250 + (21*250)/100 + (19*250)/100 ;
+
+                    }
+
+                    }
+
+            }
+        
+            
+
+            function result(){
+
+                var dr = document.getElementById("duree").value;
+
+                if(document.getElementById('Diesel').checked || document.getElementById('Essence').checked || document.getElementById('Hybride').checked || document.getElementById('Electrique').checked){
+                    document.getElementById("demo").innerHTML = Total*dr + " €";
+                }
+                else{
+                    alert('Veuillez choisir un carburant');
+                }
+
+            }
+
+            function checkk(){
+                
+                var dr = document.getElementById("duree").value;
+
+                if(prix_vehicule == 0){
+                alert('Veuillez selectioner un type');
+                }
+                else if(dr <= 0){
+                    alert('Veuillez entrer la durée');
+                }
+            }
+
+    </script>
+
+</body>
+</html>

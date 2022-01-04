@@ -1,0 +1,286 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-image: url("bgcontact.jpg");
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    height:100vh;
+    color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  header a {
+    text-decoration: none;
+  }
+  
+  header {
+    padding: 0 20px;
+    border-bottom: rgb(0, 0, 0) solid 1px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    background-color:rgba(255, 255, 255, 0.2);
+  }
+  
+  #brand {
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+  }
+  
+  #brand a {
+    color: rgb(0, 0, 0);
+  }
+  
+  ul {
+    list-style: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  ul a {
+    color: rgb(255, 255, 255);
+  }
+  
+  ul li {
+    padding: 5px;
+    margin-left: 40px;
+  }
+  
+  ul li:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+  }
+  
+  #hamburger-icon {
+    margin: auto 0;
+    display: none;
+    cursor: pointer;
+  }
+
+  #hamburger-icon ul li a{
+      color:white;
+      background-color: black;
+  }
+  
+  #hamburger-icon div {
+    width: 35px;
+    height: 3px;
+    background-color:white;
+    margin: 6px 0;
+    transition: 0.4s;
+
+  }
+  
+  .open .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-6px, 6px);
+    transform: rotate(-45deg) translate(-6px, 6px);
+  }
+  
+  .open .bar2 {
+    opacity: 0;
+  }
+  
+  .open .bar3 {
+    -webkit-transform: rotate(45deg) translate(-6px, -8px);
+    transform: rotate(45deg) translate(-6px, -8px);
+  }
+  
+  .open .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .mobile-menu {
+      background-color: black;
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    height: calc(100vh - 50px);
+    width: 100%;
+  }
+  
+  .mobile-menu li {
+    margin-bottom: 10px;
+  }
+
+
+.container_totale{
+    display: flex;
+    margin-left:10%;
+    margin-top:50px;
+    background-color:rgba(255, 255, 255,0.3);
+    width: 80%;
+    height: auto;
+    padding: 15px;
+}
+
+.main_P{
+    color:#82D8FE; 
+    font-weight: bold; 
+    margin-bottom:30px;
+}
+
+.container{
+    margin-left: 20px;
+}
+
+.type_prix{
+    display: flex;
+    margin-left: 10%;
+}
+p{
+    font-size: 20px;
+}
+.type_prix p{
+    margin-bottom: 10px;
+}
+
+.type{
+    width:200px;
+}
+
+.type p , .Tarif p{
+    margin-bottom: 15px;
+}
+
+select , #duree{
+    border: black 2px solid ;
+    width: 300px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 30px;
+}
+
+#p{
+    margin-bottom: 10px;
+}
+
+#input_carburant div{
+    margin-bottom: 5px;
+    
+}
+
+#input_carburant div input{
+   border: solid 1px black;
+   cursor: pointer;
+}
+
+#input_carburant div input:checked{
+    color:black;
+}
+
+input[type="radio"] {
+    border: solid 2px #82D8FE;
+}
+  
+
+
+button{
+    background-color: black;
+    border:none;
+    color: white;
+    width: 70px;
+    height: 30px;
+    border-radius: 10px;
+    border:2px black solid;
+    cursor: pointer;
+}
+
+  .footer{
+    display: flex;
+    flex-direction: row;
+    background-color:rgba(255, 255, 255, 0.2);
+    justify-content: space-between;
+    margin-top:47px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    height: 40px;
+    padding-right: 10px;
+    padding-left: 10px;
+    width:100%;
+    left: 0;
+    bottom: 0;
+   
+  }
+  .footer p{
+    text-align: center;
+    color: white;
+  }
+  
+  .footer #icones li img{
+      width:20px;
+      height:20px;
+  }
+ 
+  @media only screen and (max-width: 600px) {
+    header nav {
+      display: none;
+    }
+  
+    #hamburger-icon {
+      display: block;
+    }
+   
+    .container_totale{
+        display: block;
+        margin-left:10%;
+        margin-top:40px;
+        background-color:rgba(255, 255, 255,0.3);
+        width: 80%;
+        height: auto;
+        padding: 15px;
+    }
+    button{
+        width: 70px;
+        height: 30px;
+    }
+    .type_prix{
+        margin-left:0px;
+        margin-top: 10px;
+    }
+    select , #duree{
+        
+        width: 200px;
+    }
+    p{
+        font-size: 15px;
+    }
+    .main_P{
+        margin-bottom:20px;
+    }
+    .container{
+        margin-left: 0px;
+    }
+
+    .footer{
+        display: block;
+        flex-direction: row;
+        background-color:black;
+        justify-content: space-between;
+        
+        padding-top: 15px;
+        height: auto;
+        padding-right: 10px;
+        padding-left: 10px;
+        width:100%;
+        left: 0;
+        bottom: 0;
+      }
+      .footer #icones{
+        margin-right: 60px;
+        margin-top: 5px;
+        margin-bottom: -10px;
+    }
+  }
